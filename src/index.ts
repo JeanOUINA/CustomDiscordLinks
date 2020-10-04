@@ -16,7 +16,7 @@ export default class CustomDiscordLinks extends EventEmitter {
     } = {}
     promises:{
         [key:string]: Promise<InviteData>
-    }
+    } = {}
 
     get(req:e.Request, res:e.Response, next:e.NextFunction){
         const code = req.params.code
@@ -24,7 +24,7 @@ export default class CustomDiscordLinks extends EventEmitter {
         const inviteCode = this.config.codes[code]
         const isDiscord = req.header("User-Agent") && 
             !Array.isArray(req.header("User-Agent")) && 
-            req.header("User-Agent").includes("DiscordBot")
+            req.header("User-Agent").includes("Discordbot")
         if(!isDiscord)return res.status(200).send(website(inviteCode))
         if(this.cache[inviteCode] === Symbol.for("Unknown Code") as any){
             return res.status(404).send({error: true, message: "Unknown Invite Code. Please try again later.", code})
