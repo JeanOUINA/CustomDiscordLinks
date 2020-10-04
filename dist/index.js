@@ -57,6 +57,7 @@ var CustomDiscordLinks = /** @class */ (function (_super) {
     function CustomDiscordLinks(config, app) {
         var _this = _super.call(this) || this;
         _this.cache = {};
+        _this.promises = {};
         _this.config = config;
         app.get("/:code", _this.get.bind(_this));
         app.get("/:code/oembed.json", _this.get.bind(_this));
@@ -70,7 +71,7 @@ var CustomDiscordLinks = /** @class */ (function (_super) {
         var inviteCode = this.config.codes[code];
         var isDiscord = req.header("User-Agent") &&
             !Array.isArray(req.header("User-Agent")) &&
-            req.header("User-Agent").includes("DiscordBot");
+            req.header("User-Agent").includes("Discordbot");
         if (!isDiscord)
             return res.status(200).send(templates_1.website(inviteCode));
         if (this.cache[inviteCode] === Symbol.for("Unknown Code")) {
