@@ -29,5 +29,6 @@
   "dependencies": {
     "htmlencode": "0.0.4",
     "node-fetch": "^2.6.1"
-  }
+  },
+  "types": "./dist/index.d.ts"
 }
