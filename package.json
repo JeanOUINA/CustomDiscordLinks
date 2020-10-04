@@ -1,0 +1,33 @@
+{
+  "name": "custom-discord-links",
+  "version": "1.0.0",
+  "description": "A package that can create custom Discord invitations on your website, with an embed.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeanouina/custom-discord-links.git"
+  },
+  "keywords": [
+    "discord",
+    "invitations",
+    "links"
+  ],
+  "author": "jeanouina",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeanouina/custom-discord-links/issues"
+  },
+  "homepage": "https://github.com/jeanouina/custom-discord-links#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.8",
+    "@types/node": "^14.11.2",
+    "@types/node-fetch": "^2.5.7"
+  },
+  "dependencies": {
+    "htmlencode": "0.0.4",
+    "node-fetch": "^2.6.1"
+  }
+}
