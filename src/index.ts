@@ -30,6 +30,7 @@ export default class CustomDiscordLinks extends EventEmitter {
             return res.status(404).send({error: true, message: "Unknown Invite Code. Please try again later.", code})
         }
         if(this.cache[inviteCode]){
+            res.type("text/html; charset=UTF-8")
             return res.status(200).send(embed(this.cache[inviteCode], this.config.embed.color, `http${req.secure?"s":""}://${req.hostname}${req.baseUrl.split(/[#?]/)[0]}/oembed.json`))
         }
         if(this.promises[inviteCode]){
@@ -73,6 +74,7 @@ export default class CustomDiscordLinks extends EventEmitter {
             return res.status(404).send({error: true, message: "Unknown Invite Code. Please try again later.", code})
         }
         if(this.cache[code]){
+            res.type("text/html; charset=UTF-8")
             return res.status(200).send(oEmbed(this.cache[code], this.config))
         }
         if(this.promises[code]){

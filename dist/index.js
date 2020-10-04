@@ -78,6 +78,7 @@ var CustomDiscordLinks = /** @class */ (function (_super) {
             return res.status(404).send({ error: true, message: "Unknown Invite Code. Please try again later.", code: code });
         }
         if (this.cache[inviteCode]) {
+            res.type("text/html; charset=UTF-8");
             return res.status(200).send(templates_1.embed(this.cache[inviteCode], this.config.embed.color, "http" + (req.secure ? "s" : "") + "://" + req.hostname + req.baseUrl.split(/[#?]/)[0] + "/oembed.json"));
         }
         if (this.promises[inviteCode]) {
@@ -130,6 +131,7 @@ var CustomDiscordLinks = /** @class */ (function (_super) {
             return res.status(404).send({ error: true, message: "Unknown Invite Code. Please try again later.", code: code });
         }
         if (this.cache[code]) {
+            res.type("text/html; charset=UTF-8");
             return res.status(200).send(templates_1.oEmbed(this.cache[code], this.config));
         }
         if (this.promises[code]) {
